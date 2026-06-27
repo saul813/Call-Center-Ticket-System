@@ -76,6 +76,16 @@ class CallAgent{
         }
         return null; //Ticket not found
     }
+    //CallAgent Deletes a ticket by customerName
+    public boolean deleteTicketByCustomer(String customerName){
+        for(int i = 0; i <= ticketsStorage.size(); i++){
+            if(ticketsStorage.get(i).getCustomerName().equalsIgnoreCase(customerName)){
+                ticketsStorage.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 
@@ -88,10 +98,21 @@ public class AgentCentre {
         ca.createTicket("Alice", "alice@email.com", "Network", "Wi-Fi dropping frequently");
         ca.createTicket("Bob", "bob@email.com", "Billing", "Overcharged on monthly statement");
 
-        //Searching for ticket by customer Name
+        //Call Agent Searching for ticket by customer Name
         Ticket ticketfound = ca.getTicketByCustomerName("Alice");
         if(ticketfound != null){
             System.out.println(ticketfound.getTicketDetails());
+        }else {
+            System.out.println("Error: Ticket not found.");
         }
+
+        //Deleting a ticket
+        boolean isDeleted = ca.deleteTicketByCustomer("Alice");
+        if(isDeleted){
+            System.out.println("Ticket Found and Deleted");
+        }else{
+            System.out.println("Error: Ticket doesn't exist");
+        }
+
     }
 }
