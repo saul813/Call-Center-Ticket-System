@@ -16,7 +16,7 @@ class Ticket {
         this.customerName = customerName;
         this.contact = contact;
         this.category = category;
-        this.creationDate = new Date(); // Automatically sets current date and time
+        this.creationDate = new Date(); //sets current date and time
         this.issueDescription = issueDescription;
         this.status = status;
         this.priorityLevel = priorityLevel;
@@ -308,14 +308,14 @@ public class AgentCentre {
                     break;
 
                 case "6":
-                    // System Termination
+                    // System Termination....Exiting the System
                     System.out.println("Shutting down terminal connection. Goodbye!");
                     scanner.close(); // Clean up system resources
                     System.exit(0);  // Stops the Java Runtime
                     break;
 
                 default:
-                    System.out.println("⚠Invalid entry. Please choose a number between 1 and 6.");
+                    System.out.println("Invalid entry. Please choose a number between 1 and 6.");
                     break;
             }
         }
